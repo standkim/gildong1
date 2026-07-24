@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>길동이의 코딩 일기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-top">
+      <h1 class="site-title">길동이의 코딩 일기</h1>
+      <div class="header-controls">
+        <div class="font-controls">
+          <button type="button" id="font-decrease" aria-label="글자 크기 줄이기">A-</button>
+          <button type="button" id="font-increase" aria-label="글자 크기 키우기">A+</button>
+        </div>
+        <button type="button" id="dark-mode-toggle" aria-label="다크모드 전환">🌙 다크모드</button>
+      </div>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#home" class="nav-link active" data-section="home">홈</a></li>
+        <li><a href="#write" class="nav-link" data-section="write">일기쓰기</a></li>
+        <li><a href="#list" class="nav-link" data-section="list">목록</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <!-- 홈 섹션 -->
+    <section id="section-home" class="section active">
+      <div class="welcome-box">
+        <h2>안녕하세요, 길동이입니다!</h2>
+        <p>코딩을 배우며 매일 기록하는 나만의 코딩 일기장입니다.</p>
+        <p>상단 메뉴에서 <strong>일기쓰기</strong>로 오늘의 기록을 남기거나, <strong>목록</strong>에서 지난 일기를 확인할 수 있습니다.</p>
+        <div class="stats">
+          <span>저장된 일기: <strong id="diary-count">0</strong>개</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 일기쓰기 섹션 -->
+    <section id="section-write" class="section">
+      <h2>오늘의 코딩 일기</h2>
+      <form id="diary-form" class="diary-form">
+        <div class="form-group">
+          <label for="diary-title">제목</label>
+          <input type="text" id="diary-title" name="title" placeholder="오늘의 제목을 입력하세요" required>
+        </div>
+        <div class="form-group">
+          <label for="diary-date">날짜</label>
+          <input type="date" id="diary-date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="diary-content">내용</label>
+          <textarea id="diary-content" name="content" rows="10" placeholder="오늘 배운 내용, 느낀 점을 자유롭게 적어보세요." required></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">저장하기</button>
+          <button type="reset" class="btn btn-secondary">초기화</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 목록 섹션 -->
+    <section id="section-list" class="section">
+      <h2>일기 목록</h2>
+      <div id="diary-list" class="diary-list">
+        <p class="empty-message">아직 저장된 일기가 없습니다.</p>
+      </div>
+    </section>
+
+    <!-- 일기 상세 보기 -->
+    <section id="section-detail" class="section">
+      <button type="button" id="back-to-list" class="btn btn-secondary back-btn">← 목록으로</button>
+      <article id="diary-detail" class="diary-detail"></article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 길동이의 코딩 일기</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
